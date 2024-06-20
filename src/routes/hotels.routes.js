@@ -1,11 +1,11 @@
 import { Router } from 'express'
-import { getHotels } from '../controllers/hotels.controllers.js'
+import { getHotels, getOneHotel, getAvaiableRooms } from '../controllers/hotels.controllers.js'
 const router = Router()
 
 router.get("/hoteles", getHotels);
 
-router.get('/hoteles/:id', (req, res) => {
-  res.send('obteniendo un solo hotel')
-})
+router.get('/hotel/:id', getOneHotel);
+
+router.get('/rooms/:id', getAvaiableRooms);
 
 export default router; 

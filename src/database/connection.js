@@ -4,7 +4,7 @@ const dbSettings = {
   user: "admin",
   password: "root",
   server: "localhost",
-  database: "Aplicaciones",
+  database: "PROYECTO",
   options: {
     encrypt: false,
     trustServerCertificate: true,
