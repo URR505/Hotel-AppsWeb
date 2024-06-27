@@ -5,7 +5,7 @@ import sql from "mssql"
 export const getHotels = async (req, res) => {
   const pool = await getConnection()
   const result = await pool.query('SELECT * FROM HOTELES')
-  res.json(result.recordset)
+  res.json({value: result.recordset})
 }
 
 export const getOneHotel = async (req, res) => {
