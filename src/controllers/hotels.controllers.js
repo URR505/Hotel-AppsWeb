@@ -61,6 +61,6 @@ export const getListVentas = async (req, res) => {
   const result = await pool
   .request()
   .input("id", sql.Int, req.params.id)
-  .query("SELECT * FROM ListaReservaciones WHERE id_usuario = @id")
+  .query("SELECT * FROM Reservacion WHERE id_usuario = @id")
   res.json(result.recordset)
 }
