@@ -12,7 +12,7 @@ const corsOptions = {
   optionsSuccessStatus: 200, // Para navegadores antiguos o ciertos clientes
   credentials: true, // Permitir el uso de credenciales (cookies, encabezados de autenticación, etc.)
 };
-
+z
 app.use(cors(corsOptions));
 
 // Middleware para parsear las peticiones como JSON
@@ -20,13 +20,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Rutas
-app.use('/api/hoteles', hotelsRoutes); // Asegúrate de que las rutas están correctamente definidas
-app.use('/api/auth', authRoutes); // Asegúrate de que las rutas están correctamente definidas
+app.use(hotelsRoutes);
+app.use(authRoutes);
 
-// Puerto y servidor
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
 
 export default app;
