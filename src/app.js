@@ -8,7 +8,7 @@ const app = express();
 
 // Configuración de CORS para permitir solicitudes solo desde una URL específica
 const corsOptions = {
-  origin: 'https://hotel-frontend-kmfh.onrender.com/',
+  origin: 'https://hotel-frontend-kmfh.onrender.com',
   optionsSuccessStatus: 200, // Para navegadores antiguos o ciertos clientes
   credentials: true, // Permitir el uso de credenciales (cookies, encabezados de autenticación, etc.)
 };
