@@ -53,7 +53,11 @@ export const loginUser = async (req, res) => {
     const token = jwt.sign({ id: user.id, nombre: user.nombre, apellidos: user.apellidos, email: user.email }, JWT_SECRET, { expiresIn: "1h" });
 
     // Enviar el token en una cookie HTTP-only
-    res.cookie('token', token, { httpOnly: true, secure: true }); // Cambia 'secure' a true si usas HTTPS
+    res.cookie('token', token, {
+      httpOnly: true,
+      secure: true, // Solo si usas HTTPS
+      sameSite: 'None' // Necesario para cookies de terceros
+    });
     res.status(200).json({ isSuccess: true });
   } catch (error) {
     console.error(error);
