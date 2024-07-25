@@ -84,7 +84,12 @@ export const getProfile = async (req, res) => {
 
 export const logoutUser = async (req, res) => {
   // Limpiar la cookie HTTP-only
-  res.clearCookie('token');
+  res.clearCookie('token', {
+    httpOnly: true,
+    secure: true, // Solo si usas HTTPS
+    sameSite: 'None' // Necesario para cookies de terceros
+  });
+
 
   res.status(204).json({ isSuccess: true, message: 'Logout successful' });
 };
