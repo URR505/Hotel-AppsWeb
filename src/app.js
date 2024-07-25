@@ -12,7 +12,7 @@ const corsOptions = {
   optionsSuccessStatus: 200, // Para navegadores antiguos o ciertos clientes
   credentials: true, // Permitir el uso de credenciales (cookies, encabezados de autenticación, etc.)
 };
-z
+
 app.use(cors(corsOptions));
 
 // Middleware para parsear las peticiones como JSON
