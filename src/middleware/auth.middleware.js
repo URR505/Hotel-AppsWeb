@@ -2,7 +2,7 @@
 import jwt from 'jsonwebtoken';
 
 
-const JWT_SECRET = 'cf0740a3dd137863e18aaab9d99a84d2219195a17b4487b35e06c24c2c9e414f';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 export const authenticateToken = (req, res, next) => {
   // Leer el token de las cookies

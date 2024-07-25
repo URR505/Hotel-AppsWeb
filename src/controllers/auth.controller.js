@@ -3,7 +3,7 @@ import sql from "mssql";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = 'cf0740a3dd137863e18aaab9d99a84d2219195a17b4487b35e06c24c2c9e414f';
+const JWT_SECRET = process.env.JWT_SECRET;
 export const registerUser = async (req, res) => {
   const { nombre, apellidos, email, password } = req.body;
   const pool = await getConnection();
@@ -53,7 +53,7 @@ export const loginUser = async (req, res) => {
     const token = jwt.sign({ id: user.id, nombre: user.nombre, apellidos: user.apellidos, email: user.email }, JWT_SECRET, { expiresIn: "1h" });
 
     // Enviar el token en una cookie HTTP-only
-    res.cookie('token', token, { httpOnly: true, secure: false }); // Cambia 'secure' a true si usas HTTPS
+    res.cookie('token', token, { httpOnly: true, secure: true }); // Cambia 'secure' a true si usas HTTPS
     res.status(200).json({ isSuccess: true });
   } catch (error) {
     console.error(error);
